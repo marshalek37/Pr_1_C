@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap');
+
+  /* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+  */
+
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure, 
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  body {
+    line-height: 1;
+  }
+
+  ol, ul {
+    list-style: none;
+  }
+  blockquote, q {
+    quotes: none;
+  }
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  /*MY STYLES*/
+
+  a {
+    text-decoration: none;
+  }
+
+  body {
+    background-color: #3e3e3e;
+    color: #e6e6e6;
+    font-family: 'Roboto', Arial;
+    overflow-x: hidden;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #A0E7E5;
+    border: 1px solid #507574;
+    padding: 0 0.6rem;
+  }
+
+  .advertisment__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    width: 100%;
+    background-color: #A0E7E5;
+    border: 1px solid #507574;
+  }
+
+  .ad__content {
+    background-color: #FFAEBC;
+    height: 100%;
+    width: 50%;
+    border: 1px solid #507574;
+  }
+
+  .ad__content--1 {
+    background-color: #B4F8C8;
+    height: 100%;
+    width: 50%;
+    border: 1px solid #507574;
+  }
+
+  .list__svg {
+    height: 20px;
+    width: auto;
+
+    @media (min-width: 744px) {
+      display: none;
+    }
+  }
+
+  .x__svg {
+    height: 20px;
+    width: auto;
+    margin-right: 0.6rem;
+  }
+
+  .logo {
+    height: 60px;
+    width: auto;
+  }
+
+  .menu {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    background-color: #3e3e3e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    overflow: hidden;
+  }
+
+  .menu:target {
+    transform: translateX(0%);
+  }
+
+  .burger__nav {
+    display: flex;
+    width: 100%;
+  }
+
+  .logo__burger {
+    height: 60px;
+    width: auto;
+    margin-left: 0.6rem;
+  }
+
+  .links {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+  }
+
+  .burger__link {
+    color: #e6e6e6;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    margin: 0.8rem 0;
+  }
+
+  .section__title {
+    color: #e6e6e6;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0.6rem;
+  }
+
+  .content__start {
+    height: 100%;
+    width: 100%;
+
+    @media (max-width: 743px) {
+      margin: 4rem 0;
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #B4F8C8;
+    padding: 0.6rem 0.6rem;
+    border: 1px solid #507574;
+  }
+
+  .footer__svg {
+    height: 20px;
+    width: auto;
+  }
+
+  .logo__wrapper {
+    width: 95%;
+
+    @media (min-width: 200px) and (max-width: 300px) {
+      width: 70%;
+    }
+
+    @media (min-width: 301px) and (max-width: 400px) {
+      width: 80%;
+    }
+
+    @media (min-width: 401px) and (max-width: 500px) {
+      width: 85%;
+    }
+
+    @media (min-width: 501px) and (max-width: 99px) {
+      width: 90%;
+    }
+
+
+  }
+
+  .top__links {
+    display: none;
+
+    @media (min-width: 744px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .top__link {
+    color: #3e3e3e;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    margin: 0 3rem 0 0;
+    transition: .3s;
+
+    @media (min-width: 744px) and (max-width: 1260px) {
+      font-size: 1rem;
+      line-height: 1rem;
+      margin: 0 0.6rem 0 0;
+    }
+  }
+
+  .top__link:hover {
+    text-shadow: 0 0 2px;
+  }
+
+  .carousel {
+    display: flex;
+  }
+
+  .carousel__photo {
+    background-color: #FFAEBC;
+  }
+
+  .start__image {
+    width: 50%;
+    height: auto;
+    border: 1px solid #507574;
+
+    @media (max-width: 743px) {
+      width: 100%;
+    }
+  }
+
+  </style>
+
+    <body>
+      <section class="advertisment__top">
+        <div class="ad__content">AD1</div>
+        <div class="ad__content--1">AD2</div>
+      </section>
+
+      <nav>
+
+        <a href="#">
+          <img class="logo" src="Images/Logo.png" alt="List icon" loading="eager">
+        </a>
+
+        <div class="top__links">
+
+          <a class="top__link" href="#start">
+            Start
+          </a>
+
+          <a class="top__link" href="#advertisments">
+            Ogłoszenia drobne
+          </a>
+
+          <a class="top__link" href="#streetNews">
+            Buskie ulice
+          </a>
+
+          <a class="top__link" href="#sport">
+            Sport
+          </a>
+
+          <a class="top__link" href="#logotypes">
+            Logotypy
+          </a>
+
+          <a class="top__link" href="#aboutUs">
+            O nas
+          </a>
+
+          <a class="top__link" href="#contact">
+            Kontakt
+          </a>
+
+          <a class="top__link" href="#catalog">
+            Katalog firm
+          </a>
+        </div>
+
+
+        <a href="#menu">
+          <img class="list__svg" src="Icons/Hamburger_icon.svg.png" alt="List icon" loading="eager">
+        </a>
+
+      </nav>
+
+      <div class="menu" id="menu">
+
+        <section class="advertisment__top">
+          <div class="ad__content">AD1</div>
+          <div class="ad__content--1">AD2</div>
+        </section>
+
+        <nav class="burger__nav">
+
+          <a href="#">
+            <img class="logo__burger" src="Images/Logo.png" alt="List icon" loading="eager">
+          </a>
+  
+          <a href="#">
+            <img class="x__svg" src="Icons/close.png" alt="List icon" loading="eager">
+          </a>
+  
+        </nav>
+
+        <div class="links">
+
+          <a class="burger__link" href="#start">
+            Start
+          </a>
+
+          <a class="burger__link" href="#advertisments">
+            Ogłoszenia drobne
+          </a>
+
+          <a class="burger__link" href="#streetNews">
+            Buskie ulice
+          </a>
+
+          <a class="burger__link" href="#sport">
+            Sport
+          </a>
+
+          <a class="burger__link" href="#logotypes">
+            Logotypy
+          </a>
+
+          <a class="burger__link" href="#aboutUs">
+            O nas
+          </a>
+
+          <a class="burger__link" href="#contact">
+            Kontakt
+          </a>
+
+          <a class="burger__link" href="#catalog">
+            Katalog firm
+          </a>
+        </div>
+
+      </div>
+
+      <section class="content content__start" id="start">
+        <h1 class="section__title">Start</h1>
+        <div class="section__content">
+
+          <div class="carousel">
+            <img class="start__image" src="Images/1.png" alt="Landscape photo" loading="eager">
+          </div>
+        </div>
+
+      </section>
+
+      <section class="content" id="advertisments">
+        <h1 class="section__title">Ogłoszenia drobne</h1>
+        <div class="section__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi sed deleniti eius culpa, nihil maxime! Distinctio recusandae magnam aliquid reiciendis commodi unde, magni veniam architecto similique! Totam, nesciunt quos. Accusamus?</div>
+      </section>
+
+      <section class="content" id="streetNews">
+        <h1 class="section__title">Buskie ulice</h1>
+        <div class="section__content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed totam similique iste praesentium, quibusdam natus, facilis vitae, ab est consectetur possimus? Dolorem sequi quibusdam, commodi perferendis laborum possimus assumenda officiis!</div>
+      </section>
+
+      <section class="content" id="sport">
+        <h1 class="section__title">Sport</h1>
+        <div class="section__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut atque adipisci fuga! Aliquam voluptatibus, soluta debitis quasi assumenda dicta aliquid aut, voluptates perspiciatis mollitia, accusantium maiores cupiditate reiciendis reprehenderit modi.</div>
+      </section>
+
+      <section class="content" id="logotypes">
+        <h1 class="section__title">Logotypy</h1>
+        <div class="section__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, sapiente praesentium dolores voluptatibus quos maiores soluta, cumque neque eum, voluptatum esse officiis ullam porro explicabo voluptates velit architecto quaerat eaque?</div>
+      </section>
+
+      <section class="content" id="aboutUs">
+        <h1 class="section__title">O nas</h1>
+        <div class="section__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, distinctio magni. Necessitatibus eligendi harum ab dolores consequatur commodi a voluptatem, earum maiores adipisci vero tempore? Suscipit in deleniti ipsam quod?</div>
+      </section>
+
+      <section class="content" id="contact">
+        <h1 class="section__title">Kontakt<h1>
+          <div class="section__content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea, officia reiciendis, perferendis beatae sapiente sit quae sequi sunt nam placeat cupiditate numquam praesentium labore eaque vel saepe pariatur distinctio commodi.</div>
+      </section>
+
+      <section class="content" id="catalog">
+        <h1 class="section__title">Katalog firm</h1>
+        <div class="section__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptate animi, velit ipsam ad pariatur esse est quam reprehenderit asperiores tempora expedita quia eius odio autem veniam, dolore et sapiente!</div>
+      </section>
+
+      <section class="footer">
+
+        <div class="logo__wrapper">
+          <img class="logo" src="Images/Logo.png" alt="List icon" loading="eager">
+        </div>
+
+        <a 
+          href="https://www.facebook.com/Tygodnik.Ponidzia/?locale=pl_PL" 
+          target="_blank"
+          class="footer__link">
+
+          <img 
+            class="footer__svg"
+            src="Icons/facebook.png"
+            alt="Facebook icon"
+            loading="eager"
+          >
+        </a>
+
+        <a 
+          href="https://www.youtube.com/channel/UCeT_gI-01_RhHS1Td4sdmNQ" 
+          target="_blank"
+          class="footer__link">
+
+          <img 
+            class="footer__svg" 
+            src="Icons/youtube.png" 
+            alt="Youtube icon" 
+            loading="eager"
+          >
+        </a>
+
+      </section>
+    
+    </body>
+
+</html>
